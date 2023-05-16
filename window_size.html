@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="window_size.css">
+    <title>Document</title>
+</head>
+<body>
+    <div id="main_container">
+        <div id="screen" class="container">
+            <p>window.screen : </p>
+            <p id="screen_size" class="sizes"></p>
+
+        </div>
+        <div id="outer" class="container">
+            <p>window.outer : </p>
+            <p id="outer_size" class="sizes"></p>
+
+        </div>
+        <div id="inner" class="container">
+            <p>window.inner : </p>
+            <p id="inner_size" class="sizes"></p>
+
+        </div>
+        <div id="client_width" class="container">
+            <p>documentElement.clientWidth : </p>
+            <p id="client_size" class="sizes"></p>
+        </div>
+
+        <script>
+            const mainContainer = document.getElementById('main_container');
+            const screen = document.getElementById('screen_size');
+            const outer = document.getElementById('outer_size');
+            const inner = document.getElementById('inner_size');
+            const clientWidth = document.getElementById('client_size');
+
+            screen.innerText = `${window.screen.width}, ${window.screen.height}`;
+
+            window.addEventListener('resize', () => {
+                outer.innerText = `${window.outerWidth}, ${window.outerHeight}`;
+                inner.innerText = `${window.innerWidth}, ${window.innerHeight}`;
+                clientWidth.innerText = `${mainContainer.getBoundingClientRect().width}, ${mainContainer.getBoundingClientRect().height}`;
+            })
+
+        </script>
+
+    </div>
+</body>
+</html>
